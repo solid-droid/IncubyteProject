@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class GetDataService {
 
 // commonUrl = 'http://localhost:9000/.netlify/functions/api/';
-commonUrl = 'https://incubyteAPI.netlify.app/.netlify/functions/api/';
+commonUrl = 'https://incubyteProject.netlify.app/.netlify/functions/api/';
 
   constructor() { }
 
