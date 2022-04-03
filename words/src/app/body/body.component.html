@@ -1,0 +1,8 @@
+<p-listbox [options]="countries" [(ngModel)]="selectedCountries" [metaKeySelection]="false" [checkbox]="true" [filter]="true" [multiple]="true" optionLabel="name" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+    <ng-template let-country pTemplate="item">
+        <div class="country-item">
+            <img src="assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" />
+            <div>{{country.name}}</div>
+        </div>
+    </ng-template>
+</p-listbox>
