@@ -13,18 +13,18 @@
         [(ngModel)]="selectedWords" 
         [metaKeySelection]="false" 
         [filter]="true" 
-        optionLabel="name" 
+        optionLabel="word" 
         styleClass="listbox-style"
         >
-            <ng-template let-word pTemplate="item">
+            <ng-template let-item pTemplate="item">
                 <div class="word">
-                    <div  *ngIf="!word.edit" class="text">{{word.name}}</div>
-                    <input *ngIf="word.edit" type="text" pInputText [(ngModel)]="word.name"> 
+                    <div  *ngIf="!item.edit" class="text">{{item.word}}</div>
+                    <input *ngIf="item.edit" type="text" pInputText [(ngModel)]="item.name"> 
                     <div class="edit">
-                        <button pButton *ngIf="!word.edit" type="button" icon="pi pi-pencil" (click)="editWord(word)"></button>
-                        <button pButton *ngIf="word.edit" type="button" icon="pi pi-check" (click)="update(word)"></button>
+                        <button pButton *ngIf="!item.edit" type="button" icon="pi pi-pencil" (click)="editWord(item)"></button>
+                        <button pButton *ngIf="item.edit" type="button" icon="pi pi-check" (click)="update(item)"></button>
                         
-                        <button pButton type="button" icon="pi pi-trash" (click)="deleteWord(word)"></button>
+                        <button pButton type="button" icon="pi pi-trash" (click)="deleteWord(item)"></button>
                     </div>
                 </div>
             </ng-template>

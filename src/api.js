@@ -3,6 +3,7 @@ const cors = require('cors');
 const serverless = require('serverless-http');
 require('dotenv').config();
 const mongoose = require('mongoose');
+const table = require('./schema.js');
 
 const app = express();
 const router = express.Router();
@@ -14,10 +15,8 @@ router.get('/getAllWords', async (req, res) => {
     
     try{
         await connectToDB();
-        res.send([
-            {name: 'Australia', edit: false},
-            {name: 'Brazil', edit: false},
-        ]);
+        const data = await table.words.find();
+        res.send(data);
     } catch(e){
         res.send([]);
     }
