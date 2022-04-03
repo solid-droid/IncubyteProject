@@ -1,6 +1,50 @@
+
+.container{
+    display: grid;
+    grid-template-rows: 70px;
+    justify-content: center;
+    .newWord{
+        display: flex;
+        grid-gap:10px;
+        padding: 5px;
+        padding-top:10px;
+        input{
+            width: calc( 70vw - 100px);
+        }
+    }
+}
+
 ::ng-deep{
 
    .listbox-style {
-       width: 250px;
+       width: 70vw;
+       height: calc(100vh - 180px);
+       .p-listbox-list-wrapper{
+        height: calc(100vh - 280px);  
+        .p-listbox-item {
+            margin: 0;
+            padding: 0;
+        }
+       }
+
+       .word{
+           display: flex;
+           justify-content: space-between;
+           width: 100%;
+           padding: 5px;
+           border-bottom: 1px solid #ccc;
+           .edit{
+               display: flex;
+               grid-gap:5px;
+               .p-button.p-button-icon-only {
+                width: 30px;
+                height: 30px;
+               }
+           }
+           .text{
+               display: flex;
+               align-items: center;
+           }
+       }
    }
 }
