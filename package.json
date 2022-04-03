@@ -9,6 +9,6 @@
   },
   "scripts": {
     "start": "netlify-lambda serve src",
-    "build": "node ./scripts/create-env.js && netlify-lambda build src"
+    "build": "node createEnv.js && netlify-lambda build src"
   }
 }
