@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetDataService } from '../getData/get-data.service';
 
 @Component({
   selector: 'app-body',
@@ -11,18 +12,23 @@ export class BodyComponent implements OnInit {
   selectedWords:any;
   inputText = '';
   
-  constructor() { }
+  constructor(
+    private readonly getData: GetDataService
+  ) { }
 
   ngOnInit(): void {
-
-    this.words = [
-      {name: 'Australia', edit: false},
-      {name: 'Brazil', edit: false},
-  ];
+    this.getData.getAllWords();
+    this.getData.getWordList.subscribe(list => {
+      this.words = list.map((x:any) => ({...x, edit: false}));
+    });
 
   }
 
   addWord(){
+    if(this.inputText.trim()!== ''){
+      this.getData.addWord(this.inputText);
+    }
+  
   }
 
   editWord(word:any){
