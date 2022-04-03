@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-  countries:any = [];
-  selectedCountries:any;
+  words:any = [];
+  selectedWords:any;
+  inputText = '';
+  
   constructor() { }
 
   ngOnInit(): void {
 
-    this.countries = [
+    this.words = [
       {name: 'Australia', code: 'AU'},
       {name: 'Brazil', code: 'BR'},
       {name: 'China', code: 'CN'},
@@ -28,4 +30,14 @@ export class BodyComponent implements OnInit {
 
   }
 
+  addWord(){
+  }
+
+  editWord(word:any){
+
+  }
+
+  deleteWord(word:any){
+
+  }
 }

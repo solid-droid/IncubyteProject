@@ -8,6 +8,9 @@ import { BodyComponent } from './body/body.component';
 import {ListboxModule} from 'primeng/listbox';
 import {FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ListboxModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InputTextModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

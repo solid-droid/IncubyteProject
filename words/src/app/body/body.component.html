@@ -1,8 +1,32 @@
-<p-listbox [options]="countries" [(ngModel)]="selectedCountries" [metaKeySelection]="false" [checkbox]="true" [filter]="true" [multiple]="true" optionLabel="name" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
-    <ng-template let-country pTemplate="item">
-        <div class="country-item">
-            <img src="assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" />
-            <div>{{country.name}}</div>
+<div class="container">
+    <div class="newWord">
+        <div>
+            <input type="text" placeholder="Add a new word" pInputText [(ngModel)]="inputText"> 
         </div>
-    </ng-template>
-</p-listbox>
+        <div>
+            <button type="button" pButton label="Add" (click)="addWord()"></button>
+        </div>
+    </div>
+    <div>
+        <p-listbox 
+        [options]="words" 
+        [(ngModel)]="selectedWords" 
+        [metaKeySelection]="false" 
+        [filter]="true" 
+        optionLabel="name" 
+        styleClass="listbox-style"
+        >
+            <ng-template let-word pTemplate="item">
+                <div class="word">
+                    <div class="text">{{word.name}}</div>
+                    <div class="edit">
+                        <button pButton type="button" icon="pi pi-pencil" (click)="editWord(word)"></button>
+                        <button pButton type="button" icon="pi pi-trash" (click)="deleteWord(word)"></button>
+                    </div>
+                </div>
+            </ng-template>
+        </p-listbox>
+    </div>
+
+</div>
+
