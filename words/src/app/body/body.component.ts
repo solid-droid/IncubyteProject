@@ -16,8 +16,8 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
 
     this.words = [
-      {name: 'Australia', code: 'AU'},
-      {name: 'Brazil', code: 'BR'},
+      {name: 'Australia', edit: false},
+      {name: 'Brazil', edit: false},
   ];
 
   }
@@ -26,7 +26,13 @@ export class BodyComponent implements OnInit {
   }
 
   editWord(word:any){
+    this.words.forEach((item:any) => item.edit = false);
+    word.edit = true;
+  }
 
+  update(word:any){
+    word.edit = false;
+    console.log(word);
   }
 
   deleteWord(word:any){
