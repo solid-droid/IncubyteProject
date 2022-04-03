@@ -11,6 +11,7 @@ export class BodyComponent implements OnInit {
   words:any = [];
   selectedWords:any;
   inputText = '';
+  editingWord = '';
   
   constructor(
     private readonly getData: GetDataService
@@ -34,14 +35,15 @@ export class BodyComponent implements OnInit {
   editWord(word:any){
     this.words.forEach((item:any) => item.edit = false);
     word.edit = true;
+    this.editingWord = word.word;
   }
 
-  update(word:any){
+  async update(word:any){
+    await this.getData.updateWord({word: this.editingWord, _id: word._id});
     word.edit = false;
-    console.log(word);
   }
 
   deleteWord(word:any){
-
+    this.getData.deleteWord(word);
   }
 }

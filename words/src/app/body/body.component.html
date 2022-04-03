@@ -19,7 +19,7 @@
             <ng-template let-item pTemplate="item">
                 <div class="word">
                     <div  *ngIf="!item.edit" class="text">{{item.word}}</div>
-                    <input *ngIf="item.edit" type="text" pInputText [(ngModel)]="item.name"> 
+                    <input *ngIf="item.edit" type="text" pInputText [(ngModel)]="editingWord"> 
                     <div class="edit">
                         <button pButton *ngIf="!item.edit" type="button" icon="pi pi-pencil" (click)="editWord(item)"></button>
                         <button pButton *ngIf="item.edit" type="button" icon="pi pi-check" (click)="update(item)"></button>

@@ -23,17 +23,23 @@ commonUrl = 'http://localhost:9000/.netlify/functions/api/';
   }
 
   async updateWord(word:any) {
-    
-
+    const data = await(await fetch(this.commonUrl+ 'updateWord/'+word._id+'/'+word.word,{
+      method: 'PUT',
+    })).json();
+    this.getAllWords();
   }
 
   async addWord(word:any) {
     const data = await(await fetch(this.commonUrl+ 'addNewWord/'+word,{
       method: 'POST',
     })).json();
+    this.getAllWords();
   }
 
   async deleteWord(word:any) {
-
+    const data = await(await fetch(this.commonUrl+ 'deleteWord/'+word._id,{
+      method: 'DELETE',
+    })).json();
+    this.getAllWords();
   }
 }
